@@ -3,9 +3,10 @@ var mysql      = require('mysql');
 var connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : 'pikachu',
+    password : 'root',
     database : 'pokedex'
 });
+
 var app = express();
 
 connection.connect(function(err){
