@@ -3,7 +3,7 @@ let mysql = require('mysql');
 
 export default class Server {
     public app = express();
-    public  connection = mysql.createConnection({
+    public static connection = mysql.createConnection({
         host     : 'localhost',
         user     : 'root',
         password : 'root',
@@ -11,7 +11,7 @@ export default class Server {
     });
 
     constructor(){
-        this.connection.connect(function(err){
+        Server.connection.connect(function(err){
             if(!err) {
                 console.log("Database is connected ... \n\n");
             } else {
@@ -19,6 +19,7 @@ export default class Server {
             }
         });
         this.app.listen(3000);
+
     }
 }
 
